@@ -27,7 +27,7 @@ Setup Instructions:
 
 1. Clone the project
 git clone https://github.com/RailsEnjoyer/tech_interview_task
-cd word-complexity-api
+- cd tech_interview_task
 
 2.	Install dependencies
 bundle
