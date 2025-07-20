@@ -1,4 +1,5 @@
 class WordsParser
+  # standart path to a dictionary
   DICTIONARY_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
   def self.parse_synonyms(word)
@@ -24,6 +25,7 @@ class WordsParser
 
   private
 
+  # fetching data e.g. from https://api.dictionaryapi.dev/api/v2/entries/en/happy
   def self.fetch_data(word)
     response = Faraday.get("#{DICTIONARY_URL}#{word}")
     return nil unless response.success?
@@ -37,10 +39,16 @@ class WordsParser
     nil
   end
 
+  # fetched data should look like nested hashes/arrays
   def self.valid_response?(data)
     data.is_a?(Array) && data.first.is_a?(Hash)
   end
 
+  # recursively extracts all values for the specified key from a deeply nested hash or array structure
+  # for example:
+  # obj = [{ definitions(noun): { definition: "A happy event, thing, person, etc" } },
+  # { definitions: { definition(adjective): "Favoring or inclined to use" } }]
+  # deep_extract(obj, :definitions) will return results = ["A happy event, thing, person, etc", "Favoring or inclined to use"]
   def self.deep_extract(obj, key)
     results = []
 

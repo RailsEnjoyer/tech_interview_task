@@ -1,13 +1,15 @@
 class ComplexityScoreCounter
-  def self.make_calcs(word)
-    [
-      SynonymsParserJob.perform_later(word),
-      AntonymsParserJob.perform_later(word),
-      DefinitionsParserJob.perform_later(word)
-    ]
+  def self.fetch_components(word)
+    {
+      synonyms: Rails.cache.read("synonyms_for_#{word}").to_f,
+      antonyms: Rails.cache.read("antonyms_for_#{word}").to_f,
+      definitions: Rails.cache.read("definitions_for_#{word}").to_f
+    }
   end
 
-  def self.to_hash(word)
-    ComplexityScoreJob.perform_later(word)
+  def self.call(synonyms, antonyms, definitions)
+    return 0.0 if definitions.zero? # ZeroDivisionError preventing
+
+    (synonyms + antonyms) / definitions.to_f
   end
 end
