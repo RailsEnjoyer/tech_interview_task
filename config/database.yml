@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: kaito
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: tech_interview_task_development
+
+test:
+  <<: *default
+  database: tech_interview_task_test
+
+production:
+  <<: *default
+  database: tech_interview_task_production
