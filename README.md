@@ -13,12 +13,12 @@ Example:
 
 Technology Stack:
 
-Ruby 3.4.1
-Rails 8.0.2
-PostgreSQL (used as main DB, using JSONB column to store result)
-Sidekiq for background jobs
-Redis (required for Sidekiq)
-JSON API (no frontend)
+Ruby 3.4.1,
+Rails 8.0.2,
+PostgreSQL (used as main DB, using JSONB column to store result),
+Sidekiq for background jobs,
+Redis (required for Sidekiq),
+JSON API (no frontend),
 Dictionary API: https://dictionaryapi.dev/
 
 ---
