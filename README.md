@@ -50,7 +50,7 @@ API Usage
 
 POST /api/complexity-score
 for example: 
-curl -X POST http://localhost:3000/api/complexity-score \
+- curl -X POST http://localhost:3000/api/complexity-score \
      -H "Content-Type: application/json" \
      -d '["happy", "sad", "joyful]' 
 
@@ -80,5 +80,5 @@ response (completed):
 Notes:
 
 - Results are stored in a PostgreSQL jsonb field for efficient and flexible querying.
-- Sidekiq queues used: default, synonyms, antonyms, definitions.
+- Sidekiq queues used: default, synonyms, antonyms, definitions, score.
 - For demonstration purposes, a small artificial delay (sleep 15) is added in the main job to make the "pending" status observable via GET requests.
