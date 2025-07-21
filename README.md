@@ -26,23 +26,23 @@ Dictionary API: https://dictionaryapi.dev/
 Setup Instructions:
 
 1. Clone the project
-git clone https://github.com/RailsEnjoyer/tech_interview_task
+- git clone https://github.com/RailsEnjoyer/tech_interview_task
 - cd tech_interview_task
 
 2.	Install dependencies
-bundle
+- bundle
 
 3.	Setup PostgreSQL database
-rails db:create db:migrate
+- rails db:create db:migrate
 
 4.	Start Redis
-redis-server
+- redis-server
 
 5. Start Sidekiq 
-bundle exec sidekiq
+- bundle exec sidekiq
 
 6.	Run the Rails server
-rails s
+- rails s
 
 ---
 
